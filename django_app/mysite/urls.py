@@ -20,4 +20,12 @@ from blog import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.post_list),
+    url(r'^post/(?P<pk>\d+)/$', views.post_detail),
+    #?P<pk> 그룹이름 지정
+    # 아래 만족하는 정규표현식을 만듦
+    # o /post/1/
+    # o /post/2/
+    # o /post/35/
+    # x /post/1/asdf
+    # /<pk>
 ]
