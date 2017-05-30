@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!doctype html>
 <html lang="ko">
 <head>
@@ -6,23 +7,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Djang Girls blog</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div>
+<div class="container">
+
+    <div class="header">
         <h1><a href="">Post List</a></h1>
-        <h3>{{title}}</h3>
+        <h4>{{title}}</h4>
 
     </div>
 
-
+    <div class="post-list">
     {% for post in posts %}
-    <div>
-        <p>pulished : {{post.published_date}}</p>
-        <h2><a href="">{{post.title}}</a></h2>
-        <p>{{post.text}}</p>
+        <div class="post">
+            <h3><a href="">{{post.title}}</a></h3>
+            <p class="text-right"><small>pulished : {{post.published_date}}</small></p>
+            <p>{{post.text}}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
-
+</div>
 </body>
 </html>
